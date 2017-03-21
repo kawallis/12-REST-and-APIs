@@ -13,9 +13,11 @@
         Authorization: `token ${token}`
       },
     }).then((res) => {
-      var filteredRepos = res.filter(r => r.fork === false);
-      console.log(filteredRepos);
-    }).catch(err =>  console.error)
+      var filteredRepos = res
+      .filter(r => r.fork === false);
+      repos.all = filteredRepos;
+      // console.log(repos.all);
+    }).catch(err => console.error)
     callback();
   };
 
