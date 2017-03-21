@@ -14,7 +14,7 @@
       },
     }).then((res) => {
       var filteredRepos = res.filter(r => r.fork === false);
-      console.log(filteredRepos);
+      repos.all.push(filteredRepos);
     }).catch(err =>  console.error)
     callback();
   };
@@ -23,5 +23,6 @@
   // You could use this to filter all repos that have a non-zero `forks_count`, `stargazers_count`, or `watchers_count`.
   repos.with = attr => repos.all.filter(repo => repo[attr]);
 
+  // repos.with('name').map(render)
   module.repos = repos;
 })(window);
